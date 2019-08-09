@@ -1,0 +1,7 @@
+<div>
+    <img :width="width" :height="height" :src="src" @mousemove="mousemove" :alt="alt" @mouseleave="mouseleave"/>
+    <div v-if="showMagnifierGlass" class="magnifier-glass" :style="magnifierGlassStyle"></div>
+    <div v-if="showMagnifierColor" class="magnifier-color" :style="magnifierColorStyle">{{label}}
+        <div class="magnifier-color-square" :style="magnifierColorSquareStyle" />
+    </div>
+</div>
