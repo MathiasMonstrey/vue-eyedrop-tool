@@ -1,9 +1,10 @@
 {
   "name": "vue-eyedrop-tool",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Eyedrop tool for vue",
   "main": "dist/eyedrop.umd.js",
   "unpkg": "dist/eyedrop.umd.min.js",
+  "types": "dist/eyedrop.d.ts",
   "scripts": {
     "build:npm": "vue-cli-service build --target lib --name eyedrop src/eyedrop.vue"
   },
