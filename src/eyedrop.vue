@@ -3,7 +3,7 @@
 <script lang="ts" src="./eyedrop.ts">
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .magnifier-glass {
   position: absolute;
   border: 0px solid #000;

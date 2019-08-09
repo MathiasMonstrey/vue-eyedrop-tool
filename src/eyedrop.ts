@@ -86,8 +86,6 @@ export default class Eyedrop extends Vue {
             Vue.set(this.magnifierColorStyle, 'left', `${event.pageX - this.magnifierGlassWidth - 100}px`);
             Vue.set(this.magnifierColorStyle, 'top', `${event.pageY + this.magnifierGlassHeight + 5}px`);
 
-            console.log({ clientY: event.clientY, offsetY: event.offsetY, event });
-
             Vue.set(
                 this.magnifierGlassStyle,
                 'backgroundPosition',
