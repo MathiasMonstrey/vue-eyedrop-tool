@@ -8,6 +8,10 @@ Component that allows the user to have a magnifying glass when hovering an image
 npm install vue-eyedrop-tool
 ```
 
+## Example
+
+[Demo](https://vue-eyedrop-tool.netlify.com/)
+
 ## Usage
 
 Performance wise it's best to only import components when you need them, and you probably don't need this component on every page, so there is no need to load it of you don't need it.
