@@ -31,3 +31,11 @@ Inside your template:
 ```html
 <eyedrop-tool src="../assets/yourimage.jpg" width="500" height="500" alt="My image" color-label @color-update="doSomething"/>
 ```
+
+## CSS
+
+The component comes with css, to make use of it, add the following code to your main.js file:
+
+```javascript
+import 'vue-eyedrop-tool/dist/eyedrop.css';
+```
