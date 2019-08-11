@@ -12,10 +12,10 @@ export default class Eyedrop extends Vue {
     @Prop({ default: 4, type: Number })
     public zoom: number;
 
-    @Prop({ default: 50, type: Number })
+    @Prop({ default: 100, type: Number })
     public magnifierGlassWidth: number;
 
-    @Prop({ default: 50, type: Number })
+    @Prop({ default: 100, type: Number })
     public magnifierGlassHeight: number;
 
     @Prop({ default: false, type: Boolean })
@@ -72,7 +72,7 @@ export default class Eyedrop extends Vue {
         return {};
     }
 
-    public mouseleave(event: MouseEvent){
+    public mouseleave(event: MouseEvent) {
         this.mouseOver = false;
     }
 
@@ -81,18 +81,20 @@ export default class Eyedrop extends Vue {
         if (this.canvas) {
             this.pixel = this.canvas.getContext('2d')!.getImageData(event.offsetX, event.offsetY, 1, 1).data;
             this.$emit('color-update', { r: this.pixel[0], g: this.pixel[1], b: this.pixel[2] });
-            Vue.set(this.magnifierGlassStyle, 'left', `${event.pageX - this.magnifierGlassWidth}px`);
-            Vue.set(this.magnifierGlassStyle, 'top', `${event.pageY - this.magnifierGlassHeight}px`);
-            Vue.set(this.magnifierColorStyle, 'left', `${event.pageX - this.magnifierGlassWidth - 100}px`);
-            Vue.set(this.magnifierColorStyle, 'top', `${event.pageY + this.magnifierGlassHeight + 5}px`);
+            Vue.set(this.magnifierGlassStyle, 'left', `${event.pageX - (this.magnifierGlassWidth / 2)}px`);
+            Vue.set(this.magnifierGlassStyle, 'top', `${event.pageY - (this.magnifierGlassHeight / 2)}px`);
+            Vue.set(this.magnifierGlassStyle, 'width', `${this.magnifierGlassWidth}px`);
+            Vue.set(this.magnifierGlassStyle, 'height', `${this.magnifierGlassHeight}px`);
+            Vue.set(this.magnifierColorStyle, 'left', `${event.pageX - (this.magnifierGlassWidth / 2) - 100}px`);
+            Vue.set(this.magnifierColorStyle, 'top', `${event.pageY + (this.magnifierGlassHeight / 2) + 5}px`);
 
             Vue.set(
                 this.magnifierGlassStyle,
                 'backgroundPosition',
                 `${0 - (
-                    (event.offsetX * this.zoom) - this.magnifierGlassWidth)
+                    (event.offsetX * this.zoom) - (this.magnifierGlassWidth / 2))
                 }px ${0 - (
-                    (event.offsetY * this.zoom) - this.magnifierGlassHeight)
+                    (event.offsetY * this.zoom) - (this.magnifierGlassHeight / 2))
                 }px`,
             );
         }

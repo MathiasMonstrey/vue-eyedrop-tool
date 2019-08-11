@@ -1,6 +1,6 @@
 {
   "name": "vue-eyedrop-tool",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "Eyedrop tool for vue",
   "main": "dist/eyedrop.umd.js",
   "unpkg": "dist/eyedrop.umd.min.js",
