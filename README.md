@@ -25,6 +25,11 @@ import EyedropTool from 'vue-eyedrop-tool';
 export default {
     components: {
         VueEyedropTool
+    },
+    data() {
+        return {
+            imgSrc: require('./assets/image.jpg')
+        }
     }
 }
 
@@ -33,7 +38,7 @@ export default {
 Inside your template:
 
 ```html
-<eyedrop-tool src="../assets/yourimage.jpg" width="500" height="500" alt="My image" color-label @color-update="doSomething"/>
+<eyedrop-tool :src="imgSrc" :width="500" :height="500" alt="My image" color-label @color-update="doSomething"/>
 ```
 
 ## CSS
