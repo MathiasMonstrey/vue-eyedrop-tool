@@ -185,11 +185,13 @@ var Eyedrop = /** @class */ (function (_super) {
         if (this.canvas) {
             this.pixel = this.canvas.getContext('2d').getImageData(event.offsetX, event.offsetY, 1, 1).data;
             this.$emit('color-update', { r: this.pixel[0], g: this.pixel[1], b: this.pixel[2] });
-            vue_property_decorator_1.Vue.set(this.magnifierGlassStyle, 'left', event.pageX - this.magnifierGlassWidth + "px");
-            vue_property_decorator_1.Vue.set(this.magnifierGlassStyle, 'top', event.pageY - this.magnifierGlassHeight + "px");
-            vue_property_decorator_1.Vue.set(this.magnifierColorStyle, 'left', event.pageX - this.magnifierGlassWidth - 100 + "px");
-            vue_property_decorator_1.Vue.set(this.magnifierColorStyle, 'top', event.pageY + this.magnifierGlassHeight + 5 + "px");
-            vue_property_decorator_1.Vue.set(this.magnifierGlassStyle, 'backgroundPosition', 0 - ((event.offsetX * this.zoom) - this.magnifierGlassWidth) + "px " + (0 - ((event.offsetY * this.zoom) - this.magnifierGlassHeight)) + "px");
+            vue_property_decorator_1.Vue.set(this.magnifierGlassStyle, 'left', event.pageX - (this.magnifierGlassWidth / 2) + "px");
+            vue_property_decorator_1.Vue.set(this.magnifierGlassStyle, 'top', event.pageY - (this.magnifierGlassHeight / 2) + "px");
+            vue_property_decorator_1.Vue.set(this.magnifierGlassStyle, 'width', this.magnifierGlassWidth + "px");
+            vue_property_decorator_1.Vue.set(this.magnifierGlassStyle, 'height', this.magnifierGlassHeight + "px");
+            vue_property_decorator_1.Vue.set(this.magnifierColorStyle, 'left', event.pageX - (this.magnifierGlassWidth / 2) - 100 + "px");
+            vue_property_decorator_1.Vue.set(this.magnifierColorStyle, 'top', event.pageY + (this.magnifierGlassHeight / 2) + 5 + "px");
+            vue_property_decorator_1.Vue.set(this.magnifierGlassStyle, 'backgroundPosition', 0 - ((event.offsetX * this.zoom) - (this.magnifierGlassWidth / 2)) + "px " + (0 - ((event.offsetY * this.zoom) - (this.magnifierGlassHeight / 2))) + "px");
         }
     };
     Eyedrop.prototype.createCanvas = function (imageSource) {
@@ -214,10 +216,10 @@ var Eyedrop = /** @class */ (function (_super) {
         vue_property_decorator_1.Prop({ default: 4, type: Number })
     ], Eyedrop.prototype, "zoom", void 0);
     __decorate([
-        vue_property_decorator_1.Prop({ default: 50, type: Number })
+        vue_property_decorator_1.Prop({ default: 100, type: Number })
     ], Eyedrop.prototype, "magnifierGlassWidth", void 0);
     __decorate([
-        vue_property_decorator_1.Prop({ default: 50, type: Number })
+        vue_property_decorator_1.Prop({ default: 100, type: Number })
     ], Eyedrop.prototype, "magnifierGlassHeight", void 0);
     __decorate([
         vue_property_decorator_1.Prop({ default: false, type: Boolean })
@@ -383,6 +385,23 @@ function normalizeComponent (
     options: options
   }
 }
+
+
+/***/ }),
+
+/***/ "37bd":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"73e4c3e1-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./src/eyedrop.html?vue&type=template&id=4913769a&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('img',{attrs:{"width":_vm.width,"height":_vm.height,"src":_vm.src,"alt":_vm.alt},on:{"mousemove":_vm.mousemove,"mouseleave":_vm.mouseleave}}),(_vm.showMagnifierGlass)?_c('div',{staticClass:"magnifier-glass",style:(_vm.magnifierGlassStyle)}):_vm._e(),(_vm.showMagnifierColor)?_c('div',{staticClass:"magnifier-color",style:(_vm.magnifierColorStyle)},[_vm._v(_vm._s(_vm.label)+"\r\n        "),_c('div',{staticClass:"magnifier-color-square",style:(_vm.magnifierColorSquareStyle)})]):_vm._e()])}
+var staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./src/eyedrop.html?vue&type=template&id=4913769a&
+/* concated harmony reexport render */__webpack_require__.d(__webpack_exports__, "a", function() { return render; });
+/* concated harmony reexport staticRenderFns */__webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
 
 
 /***/ }),
@@ -931,7 +950,7 @@ function isPromise(obj) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _eyedrop_html_vue_type_template_id_c7f2eb5c___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("7b4f");
+/* harmony import */ var _eyedrop_html_vue_type_template_id_4913769a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("37bd");
 /* harmony import */ var _eyedrop_ts_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("aa5e");
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _eyedrop_ts_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _eyedrop_ts_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 /* harmony import */ var _eyedrop_vue_vue_type_style_index_0_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("9604");
@@ -946,8 +965,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(
   _eyedrop_ts_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _eyedrop_html_vue_type_template_id_c7f2eb5c___WEBPACK_IMPORTED_MODULE_0__[/* render */ "a"],
-  _eyedrop_html_vue_type_template_id_c7f2eb5c___WEBPACK_IMPORTED_MODULE_0__[/* staticRenderFns */ "b"],
+  _eyedrop_html_vue_type_template_id_4913769a___WEBPACK_IMPORTED_MODULE_0__[/* render */ "a"],
+  _eyedrop_html_vue_type_template_id_4913769a___WEBPACK_IMPORTED_MODULE_0__[/* staticRenderFns */ "b"],
   false,
   null,
   null,
@@ -963,23 +982,6 @@ var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-
-/***/ }),
-
-/***/ "7b4f":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"73e4c3e1-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./src/eyedrop.html?vue&type=template&id=c7f2eb5c&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',[_c('img',{attrs:{"width":_vm.width,"height":_vm.height,"src":_vm.src,"alt":_vm.alt},on:{"mousemove":_vm.mousemove,"mouseleave":_vm.mouseleave}}),(_vm.showMagnifierGlass)?_c('div',{staticClass:"magnifier-glass",style:(_vm.magnifierGlassStyle)}):_vm._e(),(_vm.showMagnifierColor)?_c('div',{staticClass:"magnifier-color",style:(_vm.magnifierColorStyle)},[_vm._v(_vm._s(_vm.label)+"\r\n        "),_c('div',{staticClass:"magnifier-color-square",style:(_vm.magnifierColorSquareStyle)})]):_vm._e()])}
-var staticRenderFns = []
-
-
-// CONCATENATED MODULE: ./src/eyedrop.html?vue&type=template&id=c7f2eb5c&
-/* concated harmony reexport render */__webpack_require__.d(__webpack_exports__, "a", function() { return render; });
-/* concated harmony reexport staticRenderFns */__webpack_require__.d(__webpack_exports__, "b", function() { return staticRenderFns; });
-
 
 /***/ }),
 
