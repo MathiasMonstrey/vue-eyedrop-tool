@@ -24,7 +24,7 @@ import EyedropTool from 'vue-eyedrop-tool';
 
 export default {
     components: {
-        VueEyedropTool
+        EyedropTool
     },
     data() {
         return {
